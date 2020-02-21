@@ -1,5 +1,7 @@
 package ED;
 
+import java.util.*;
+
 public class CadastroCompras {
 	
 	//Criar estrutura de produtos
@@ -11,7 +13,13 @@ public class CadastroCompras {
 
 	public static void main(String[] args) {
 		
+		Scanner entrada = new Scanner(System.in);
 		
+		//Variável do tipo produtos
+		Produto p;
+		
+		//Criando uma lista encadeada de produtos
+		LinkedList<Produto> lista = new LinkedList<Produto>();
 		
 	}
 
