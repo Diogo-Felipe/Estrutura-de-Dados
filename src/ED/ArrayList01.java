@@ -12,7 +12,9 @@ public class ArrayList01 {
 		//Adicionar elementos ao ArrayList
 		al.add(3);
 		al.add(30);
-
+		
+		//Exibir elemento no ArrayList usando get
+		System.out.println("Usando get - " + al.get(1));
 	}
 
 }
