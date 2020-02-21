@@ -47,13 +47,24 @@ public class CadastroCompras {
 				lista.add(p);
 				
 			} else if ( op == 2) {
+				System.out.println("\nListanto Produtos");
 				
-			} else if ( op == 3) {
-				
+				if(lista.isEmpty()) {
+					
+					System.out.println("Lista Vazia!");
+					
+				} else {
+					
+					for(Produto consulta : lista) {
+						System.out.println("Produto: " + consulta.nome);
+						System.out.println("Quantidade: " + consulta.quantidade);
+					}
+					
+				}	
 			}
 			
 			
-		}while();
+		}while( op != 4);
 		
 	}
 
