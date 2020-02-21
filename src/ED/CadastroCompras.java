@@ -61,6 +61,25 @@ public class CadastroCompras {
 					}
 					
 				}	
+			} else if (op == 3) {
+				System.out.println("\nRemovendo Produto");
+				
+				if(lista.isEmpty()) {
+					
+					System.out.println("Lista Vazia!");
+					
+				} else {
+					System.out.printf("Nome do produto para remoção: ");
+					String nomeProd = entrada.nextLine();
+					
+					for(Produto remocao : lista) {
+						
+						if(remocao.nome.equals(nomeProd)) {
+							lista.remove(remocao);
+						}
+						
+					}
+				}
 			}
 			
 			
