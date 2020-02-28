@@ -20,6 +20,8 @@ public class Queue01 {
 		
 		String nome = "Adriana";
 		System.out.println("Contem o nome: " + filaEspera.contains(nome));
+		
+		System.out.println("Nome: " + filaEspera.peek());
 	}
 
 }
