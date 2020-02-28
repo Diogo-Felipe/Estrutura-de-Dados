@@ -35,6 +35,14 @@ public class DequeEd {
 		while(iterator.hasNext()) {
 			System.out.println("\t" + reverso.next());
 		}
+		
+		
+		//REMOÇÃO DE ELEMENTOS
+		//Remover da cabeça do deque
+		System.out.println("Pop " + deque.pop());
+		
+		//Remover Elemento da Calda
+		deque.removeLast();
 	}
 
 }
