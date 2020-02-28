@@ -79,7 +79,15 @@ public class Fila {
             		System.out.println("Número " + inicio.num + " removido!");
             		
             	}
+            	
+            } else if (op == 4) {
+            	if(inicio == null) System.out.println("Fila Vazia");
+            	else {
+            		inicio = null;
+            		System.out.println("Fila esvaziada");
+            	}
             }
+            
             
 		}while(true);
 	}
