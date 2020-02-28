@@ -1,9 +1,18 @@
 package ED;
 
+import java.util.*;
+
 public class Queue01 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Queue<String> filaEspera = new LinkedList<>();
+		
+		filaEspera.add("Rodrigo");
+		filaEspera.add("João");
+		filaEspera.add("Adriana");
+		
+				
 
 	}
 
