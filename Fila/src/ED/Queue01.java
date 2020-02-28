@@ -12,7 +12,9 @@ public class Queue01 {
 		filaEspera.add("João");
 		filaEspera.add("Adriana");
 		
-		System.out.println("Elementos da fila: " + filaEspera);		
+		System.out.println("Elementos da fila: " + filaEspera);
+		
+		System.out.println("Fila está vazia: " + filaEspera.isEmpty());
 
 	}
 
