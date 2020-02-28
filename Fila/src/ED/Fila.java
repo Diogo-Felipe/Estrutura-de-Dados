@@ -30,7 +30,29 @@ public class Fila {
             System.out.println("4 - Esvaziar a fila");
             System.out.println("5 - sair");
             System.out.print("Digite sua opção");
+            
+            op = entrada.nextInt();
+            
+            if(op < 1 || op > 5) System.out.println("Opção Inválida!");
 			
+            if(op == 1) {
+            	
+            	//Criação e Inserção na Fila
+            	
+            	//Criar Elemento da Fila
+            	FILA novo = new FILA();
+            	novo.num = entrada.nextInt();
+            	novo.prox = null;
+            	
+            	if(inicio != null) {
+            		fim.prox = novo;
+            		fim = novo;            		
+            	} else {
+            		inicio = novo;
+            		fim = novo;
+            	}
+            }
+            
 		}while(true);
 	}
 }
