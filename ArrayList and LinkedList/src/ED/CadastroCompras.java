@@ -61,6 +61,7 @@ public class CadastroCompras {
 					}
 					
 				}	
+				
 			} else if (op == 3) {
 				System.out.println("\nRemovendo Produto");
 				
