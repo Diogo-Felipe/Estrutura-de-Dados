@@ -17,6 +17,9 @@ public class Queue01 {
 		System.out.println("Fila está vazia: " + filaEspera.isEmpty());
 
 		System.out.println("Tamanho da fila: " + filaEspera.size());
+		
+		String nome = "Adriana";
+		System.out.println("Contem o nome: " + filaEspera.contains(nome));
 	}
 
 }
