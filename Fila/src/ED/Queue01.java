@@ -22,6 +22,8 @@ public class Queue01 {
 		System.out.println("Contem o nome: " + filaEspera.contains(nome));
 		
 		System.out.println("Nome: " + filaEspera.peek() + " é o primeiro");
+		
+		System.out.println("Removendo da fila " + filaEspera.poll());
 	}
 
 }
