@@ -51,6 +51,23 @@ public class Fila {
             		inicio = novo;
             		fim = novo;
             	}
+            	
+            	System.out.println("Número inserido no fim da fila!");
+            	
+            } else if(op == 2) {
+            	
+            	//Consultar Fila
+            	
+            	if(inicio == null) System.out.println("Fila Vazia");
+            	else {
+            		
+            		aux = inicio;
+            		while(aux != null) {
+            			
+            			System.out.println(aux.num + " ");
+            		}
+            	}
+            	
             }
             
 		}while(true);
