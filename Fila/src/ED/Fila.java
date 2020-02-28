@@ -65,9 +65,20 @@ public class Fila {
             		while(aux != null) {
             			
             			System.out.println(aux.num + " ");
+            			aux = aux.prox;
             		}
             	}
             	
+            } else if (op == 3) {
+            	
+            	//Remover (Consumir um elemento da Fila)
+            	if(inicio == null) System.out.println("Fila Vazia");
+            	else {
+            		
+            		inicio = inicio.prox;
+            		System.out.println("Número " + inicio.num + " removido!");
+            		
+            	}
             }
             
 		}while(true);
