@@ -28,6 +28,8 @@ public class Pilha {
             System.out.println("5 - sair");
             System.out.print("Digite sua opção");
             
+            op = entrada.nextInt();
+            
             if(op < 1 || op > 5) System.out.println("Opção inválida!");
             
             //CRIAR O NO E EMPILHAR (PUSH)
@@ -65,8 +67,22 @@ public class Pilha {
               
               } 
           }
+          
+          //ESVAZIAR
+          if(op == 4){
+          
+        	  if(topo == null) System.out.println("Pilha vazia!");
+        	  else {
+             
+        		  topo = null;
+        		  System.out.println("Pilha esvaziada");
+             
+        	  }
+          
+          
+          }
             
-        }while();
+        }while(op != 5);
 	}
 
 }
