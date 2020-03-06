@@ -55,6 +55,17 @@ public class Pilha {
                 }  
             }
             
+          //DESEMPILHAR (POP)
+          if(op == 3) {
+              if(topo == null) System.out.println("Pilha vazia!");
+              else {
+              
+                  System.out.println("Número " + topo.num + " removido!");
+                  topo = topo.prox;
+              
+              } 
+          }
+            
         }while();
 	}
 
