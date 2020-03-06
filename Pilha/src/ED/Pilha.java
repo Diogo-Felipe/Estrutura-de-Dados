@@ -33,16 +33,26 @@ public class Pilha {
             //CRIAR O NO E EMPILHAR (PUSH)
             if(op == 1){
             
-             System.out.println("Digite o número a ser inserido na pilha: ");
+            	System.out.println("Digite o número a ser inserido na pilha: ");
              
-             STACK novo = new STACK();
-             novo.num = entrada.nextInt();
-             novo.prox = topo;
-             topo = novo;          
+            	STACK novo = new STACK();
+            	novo.num = entrada.nextInt();
+            	novo.prox = topo;
+            	topo = novo;          
             
-             System.out.println("Número inserido na pilha");
+            	System.out.println("Número inserido na pilha");
+            }
             
-            
+            //CONSULTA A PILHA
+            if(op == 2) {
+            	if(topo == null) System.out.println("Pilha vazia!");
+                else {
+                    aux = topo;
+                    while(aux != null){
+                        System.out.println(aux.num + " ");
+                        aux = aux.prox;
+                    }
+                }  
             }
             
         }while();
