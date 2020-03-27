@@ -38,6 +38,9 @@ public class ArvoreDeBuscaBinaria {
 			System.out.println("1 - Inserir Elemtno");
 			System.out.println("2 - Consulta de Elemento");
 			System.out.println("3 - Consulta de Pré-Ordem");
+			System.out.println("4 - Consulta de Pós-Ordem");
+			System.out.println("5 - Consulta de Ordem");
+			System.out.println("6 - Remover Elemento");
 			System.out.println("9 - Sair");
 			
 			opcao = entrada.nextInt();
@@ -125,8 +128,127 @@ public class ArvoreDeBuscaBinaria {
 			
 			if(opcao == 5)
 				buscaOrdem(raiz);
-
 			
+			
+			if(opcao == 6) {
+				System.out.println("Digite o valor: ");
+				int valor = entrada.nextInt();
+				
+				NoArvore auxiliar = raiz;
+				boolean encontrado = false;
+				
+
+				
+				if(auxiliar != raiz) {
+					NoArvore anterior = raiz;
+					
+					while(auxiliar != null && encontrado == false) {
+						if(valor == auxiliar.valor) {
+							encontrado = true;
+						} else if(valor < auxiliar.valor) {
+							auxiliar = auxiliar.esquerda;
+						} else {
+							auxiliar = auxiliar.direita;
+						}
+					}
+					
+					while(anterior.direita != auxiliar && anterior.esquerda != auxiliar) { 
+						if(anterior.valor > valor)
+							anterior = anterior.esquerda;
+						else {
+							anterior = anterior.direita;
+						}
+					}
+															
+					
+					
+					if(auxiliar.esquerda == null && auxiliar.direita == null) {
+						if(anterior.esquerda == auxiliar) 
+							anterior.esquerda = null;
+						else 
+							anterior.direita = null;
+						
+					} else if (auxiliar.esquerda != null && auxiliar.direita == null) {
+						if(anterior.esquerda == auxiliar) 
+							anterior.esquerda = auxiliar.esquerda;
+						else 
+							anterior.direita = auxiliar.esquerda;
+						
+					} else if (auxiliar.esquerda == null && auxiliar.direita != null) {
+						if(anterior.esquerda == auxiliar) 
+							anterior.esquerda = auxiliar.direita;
+						else 
+							anterior.direita = auxiliar.direita;
+						
+					} else {
+						NoArvore auxiliar1;
+						
+						if(anterior.direita == auxiliar) {
+							anterior.direita = auxiliar.direita;
+							auxiliar1 = auxiliar.esquerda;
+						} else {
+							anterior.esquerda = auxiliar.esquerda;
+							auxiliar1 = auxiliar.direita;
+						}
+						
+						auxiliar = anterior;
+						while(auxiliar != null) {
+							if(auxiliar.valor < auxiliar1.valor) {
+								if(auxiliar.direita == null) {
+									auxiliar.direita = auxiliar1;
+									auxiliar = null;
+								} else {
+									auxiliar = auxiliar.direita;
+								}
+								
+							} else if (auxiliar.valor > auxiliar1.valor) {
+								if(auxiliar.esquerda == null) {
+									auxiliar.esquerda = auxiliar1;
+									auxiliar = null;
+								} else {
+									auxiliar = auxiliar.esquerda;
+								}		
+							}
+						}
+					}
+					
+				} else {
+					if(auxiliar.direita == null && auxiliar.esquerda == null) {
+						raiz = null;
+					} else {
+						if (auxiliar.esquerda != null && auxiliar.direita == null) 
+							raiz = auxiliar.esquerda;
+						else if (auxiliar.esquerda == null && auxiliar.direita != null)
+							raiz = auxiliar.direita;
+						else if (auxiliar.esquerda != null && auxiliar.direita != null) {
+							NoArvore auxiliar1;
+							raiz = auxiliar.direita;
+							auxiliar1 = auxiliar.esquerda;
+							
+							auxiliar = raiz;
+							while(auxiliar != null) {
+								if(auxiliar.valor < auxiliar1.valor) {
+									if(auxiliar.direita == null) {
+										auxiliar.direita = auxiliar1;
+										auxiliar = null;
+									} else {
+										auxiliar = auxiliar.direita;
+									}
+									
+								} else if (auxiliar.valor > auxiliar1.valor) {
+									if(auxiliar.esquerda == null) {
+										auxiliar.esquerda = auxiliar1;
+										auxiliar = null;
+									} else {
+										auxiliar = auxiliar.esquerda;
+									}		
+								}
+							}
+						}
+					}
+				}
+			}
+
 		}while(opcao != 9);
 		
 	}
