@@ -140,27 +140,21 @@ public class ArvoreDeBuscaBinaria {
 				
 
 				
-				if(auxiliar != raiz) {
+				if(valor != raiz.valor) {
 					NoArvore anterior = raiz;
+					auxiliar = raiz;
 					
 					while(auxiliar != null && encontrado == false) {
 						if(valor == auxiliar.valor) {
 							encontrado = true;
 						} else if(valor < auxiliar.valor) {
+							anterior = auxiliar;
 							auxiliar = auxiliar.esquerda;
 						} else {
+							anterior = auxiliar;
 							auxiliar = auxiliar.direita;
 						}
-					}
-					
-					while(anterior.direita != auxiliar && anterior.esquerda != auxiliar) { 
-						if(anterior.valor > valor)
-							anterior = anterior.esquerda;
-						else {
-							anterior = anterior.direita;
-						}
-					}
-															
+					}	
 					
 					
 					if(auxiliar.esquerda == null && auxiliar.direita == null) {
@@ -182,35 +176,32 @@ public class ArvoreDeBuscaBinaria {
 							anterior.direita = auxiliar.direita;
 						
 					} else {
-						NoArvore auxiliar1;
-						
-						if(anterior.direita == auxiliar) {
-							anterior.direita = auxiliar.direita;
-							auxiliar1 = auxiliar.esquerda;
-						} else {
-							anterior.esquerda = auxiliar.esquerda;
-							auxiliar1 = auxiliar.direita;
-						}
-						
-						auxiliar = anterior;
-						while(auxiliar != null) {
-							if(auxiliar.valor < auxiliar1.valor) {
-								if(auxiliar.direita == null) {
-									auxiliar.direita = auxiliar1;
-									auxiliar = null;
-								} else {
-									auxiliar = auxiliar.direita;
-								}
-								
-							} else if (auxiliar.valor > auxiliar1.valor) {
-								if(auxiliar.esquerda == null) {
-									auxiliar.esquerda = auxiliar1;
-									auxiliar = null;
-								} else {
-									auxiliar = auxiliar.esquerda;
-								}		
+						NoArvore auxiliar1 = auxiliar.direita;
+						NoArvore auxiliar2 = auxiliar.esquerda;
+						NoArvore anteriorAtual = null;
+
+						if(auxiliar == anterior.direita) {
+							
+							auxiliar = auxiliar.esquerda;
+							while(auxiliar.direita != null) {
+								anteriorAtual = auxiliar;
+								auxiliar = auxiliar.direita;
 							}
+							anterior.direita = auxiliar;
+							
+						} else if(auxiliar == anterior.esquerda) {
+							
+							auxiliar = auxiliar.esquerda;
+							while(auxiliar.direita != null) {	
+								anteriorAtual = auxiliar;
+								auxiliar = auxiliar.direita;
+							}
+							anterior.esquerda = auxiliar;
+							
 						}
+						auxiliar.direita = auxiliar1;
+						auxiliar.esquerda = auxiliar2;
+						anteriorAtual.direita = null;
 					}
 					
 				} else {
@@ -222,29 +213,21 @@ public class ArvoreDeBuscaBinaria {
 						else if (auxiliar.esquerda == null && auxiliar.direita != null)
 							raiz = auxiliar.direita;
 						else if (auxiliar.esquerda != null && auxiliar.direita != null) {
-							NoArvore auxiliar1;
-							raiz = auxiliar.direita;
-							auxiliar1 = auxiliar.esquerda;
-							
-							auxiliar = raiz;
-							while(auxiliar != null) {
-								if(auxiliar.valor < auxiliar1.valor) {
-									if(auxiliar.direita == null) {
-										auxiliar.direita = auxiliar1;
-										auxiliar = null;
-									} else {
-										auxiliar = auxiliar.direita;
-									}
-									
-								} else if (auxiliar.valor > auxiliar1.valor) {
-									if(auxiliar.esquerda == null) {
-										auxiliar.esquerda = auxiliar1;
-										auxiliar = null;
-									} else {
-										auxiliar = auxiliar.esquerda;
-									}		
-								}
+							NoArvore auxiliar1 = raiz.direita;
+							NoArvore auxiliar2 = raiz.esquerda;
+							NoArvore anteriorAtual = null;
+
+								
+							auxiliar = raiz.esquerda;
+							while(auxiliar.direita != null) {	
+								anteriorAtual = auxiliar;
+								auxiliar = auxiliar.direita;
 							}
+							raiz = auxiliar;
+								
+							auxiliar.direita = auxiliar1;
+							auxiliar.esquerda = auxiliar2;
+							anteriorAtual.direita = null;
 						}
 					}
 				}
