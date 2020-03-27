@@ -119,6 +119,11 @@ public class ArvoreDeBuscaBinaria {
 			
 			if(opcao == 3) 
 				buscaPreOrdem(raiz);
+			
+			if(opcao == 4)
+				buscaPosOrdem(raiz);
+			
+
 
 			
 		}while(opcao != 9);
@@ -140,6 +145,19 @@ public class ArvoreDeBuscaBinaria {
 		
 	}
 	
-
+	public static void buscaPosOrdem(NoArvore raiz) {
+		NoArvore auxiliar = raiz;
+				
+		if(auxiliar.esquerda != null) {
+			buscaPosOrdem(auxiliar.esquerda);
+		} 
+		
+		if (auxiliar.direita != null) {
+			buscaPosOrdem(auxiliar.direita);
+		}
+		
+		auxiliar.getValor();
+		
+	}
 
 }
