@@ -41,6 +41,7 @@ public class ArvoreDeBuscaBinaria {
 			System.out.println("4 - Consulta de Pós-Ordem");
 			System.out.println("5 - Consulta de Ordem");
 			System.out.println("6 - Remover Elemento");
+			System.out.println("7 - Esvaziar Arvore");
 			System.out.println("9 - Sair");
 			
 			opcao = entrada.nextInt();
@@ -246,6 +247,15 @@ public class ArvoreDeBuscaBinaria {
 							}
 						}
 					}
+				}
+			}
+			
+			if(opcao == 7) {
+				if(raiz == null) {
+					System.out.println("Arvore vazia");
+				} else {
+					raiz = null;
+					System.out.println("Arvore Esvaziada");
 				}
 			}
 
