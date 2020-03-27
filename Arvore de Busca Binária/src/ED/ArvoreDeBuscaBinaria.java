@@ -123,7 +123,8 @@ public class ArvoreDeBuscaBinaria {
 			if(opcao == 4)
 				buscaPosOrdem(raiz);
 			
-
+			if(opcao == 5)
+				buscaOrdem(raiz);
 
 			
 		}while(opcao != 9);
@@ -157,7 +158,21 @@ public class ArvoreDeBuscaBinaria {
 		}
 		
 		auxiliar.getValor();
+	}
+	
+	private static void buscaOrdem(NoArvore raiz) {
+		NoArvore auxiliar = raiz;
 		
+		if(auxiliar.esquerda != null) {
+			buscaPosOrdem(auxiliar.esquerda);
+		} 
+		
+		auxiliar.getValor();
+		
+		if (auxiliar.direita != null) {
+			buscaPosOrdem(auxiliar.direita);
+		}
+	
 	}
 
 }
