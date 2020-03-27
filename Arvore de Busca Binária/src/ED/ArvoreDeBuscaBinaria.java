@@ -18,6 +18,11 @@ public class ArvoreDeBuscaBinaria {
 			
 		}
 		
+		public int getValor() {
+			System.out.println(valor);
+			return valor;
+		}
+		
 	}
 
 	public static void main(String[] args) {
@@ -32,6 +37,7 @@ public class ArvoreDeBuscaBinaria {
 			System.out.println("Digite uma opção:");
 			System.out.println("1 - Inserir Elemtno");
 			System.out.println("2 - Consulta de Elemento");
+			System.out.println("3 - Consulta de Pré-Ordem");
 			System.out.println("9 - Sair");
 			
 			opcao = entrada.nextInt();
@@ -111,8 +117,29 @@ public class ArvoreDeBuscaBinaria {
 				
 			}
 			
+			if(opcao == 3) 
+				buscaPreOrdem(raiz);
+
+			
 		}while(opcao != 9);
 		
 	}
+
+	public static void buscaPreOrdem(NoArvore raiz) {
+		NoArvore auxiliar = raiz;
+		
+		auxiliar.getValor();
+		
+		if(auxiliar.esquerda != null) {
+			buscaPreOrdem(auxiliar.esquerda);
+		} 
+		
+		if (auxiliar.direita != null) {
+			buscaPreOrdem(auxiliar.direita);
+		}
+		
+	}
+	
+
 
 }
