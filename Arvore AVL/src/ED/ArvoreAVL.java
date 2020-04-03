@@ -79,6 +79,28 @@ public class ArvoreAVL {
 					mostrarEmPosOrdem(raiz);
 				}				
 
+			} else if(opcao == 6) {
+				if(raiz == null)System.out.println("Arvore vazia ");
+				else{
+
+					System.out.println("Digite o numero que deseja excluir: ");
+
+					int valor = entrada.nextInt();
+
+					boolean achou = false;
+					achou = consulta(raiz, valor, achou);
+
+					if(achou)System.out.println("Numero nao encontrado");
+					else{
+
+						raiz = remover(raiz, valor);
+						raiz = atualiza(raiz);
+
+						System.out.println("Numero excluido da arvore!");
+
+					}			
+
+				}
 			}
 			
 		} while(opcao != 8);
@@ -244,6 +266,66 @@ public class ArvoreAVL {
 		mostrarEmPosOrdem(auxiliar.direita);
 		System.out.print(auxiliar.valor + " ");
 		
+	}
+	
+	public static NoArvore remover(NoArvore auxiliar, int num){
+
+		NoArvore p,p2;
+
+		if(auxiliar.valor == num){
+
+			if(auxiliar.esquerda == auxiliar.direita) // elemento a ser removido nao tem filho
+				return null;
+			else if(auxiliar.esquerda == null) //elemento a ser removido nao tem filho a esquerda
+				return auxiliar.direita;
+			else if(auxiliar.esquerda == null) //elemento a ser removido nao tem filho para a direita
+				return auxiliar.direita;
+			else{ //elemento a ser removido tem filhos para ambos os lados
+
+				p2 = auxiliar.direita;
+				p = auxiliar.direita;
+
+				while(p.esquerda != null)
+					p = p.esquerda;
+
+				p.esquerda = auxiliar.esquerda;
+				return p2;				
+			}			
+
+		}else if(auxiliar.valor < num)
+			auxiliar.direita = remover(auxiliar.direita, num);
+		else
+			auxiliar.esquerda = remover(auxiliar.esquerda, num);
+
+		return auxiliar;		
+
+	}
+
+	public static NoArvore atualiza(NoArvore auxiliar){
+
+		if(auxiliar != null){
+
+			auxiliar.esquerda = atualiza(auxiliar.esquerda);
+
+			if(auxiliar.esquerda == null)
+				auxiliar.alturaSAE = 0;
+			else if(auxiliar.esquerda.alturaSAE > auxiliar.esquerda.alturaSAD)
+				auxiliar.alturaSAE = auxiliar.esquerda.alturaSAE + 1;
+			else
+				auxiliar.alturaSAE = auxiliar.esquerda.alturaSAD + 1;
+
+			auxiliar.direita = atualiza(auxiliar.direita);
+
+			if(auxiliar.direita == null)
+				auxiliar.alturaSAD = 0;
+			else if(auxiliar.direita.alturaSAE > auxiliar.direita.alturaSAD)
+				auxiliar.alturaSAD = auxiliar.direita.alturaSAE + 1;
+			else
+				auxiliar.alturaSAD = auxiliar.direita.alturaSAD + 1;
+
+			auxiliar = balanceamento(auxiliar);			
+		}		
+		return auxiliar;
 	}
 
 }
