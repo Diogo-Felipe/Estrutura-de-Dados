@@ -53,6 +53,14 @@ public class ArvoreAVL {
 					
 					achou = consulta(raiz, valor, achou);
 				}
+				
+			} else if(opcao == 3) {
+				if(raiz == null)System.out.println("Arvore vazia ");
+				else{
+
+					System.out.println("Listando todos os elementos da arvore EM ORDEM");
+					mostrarEmPreOrdem(raiz);			
+				}
 			}
 			
 		} while(opcao != 8);
@@ -194,6 +202,14 @@ public class ArvoreAVL {
 		}
 		
 		return achou;
+	}
+	
+	public static void mostrarEmPreOrdem(NoArvore auxiliar) {
+		
+		System.out.print(auxiliar.valor + " ");
+		mostrarEmPreOrdem(auxiliar.esquerda);
+		mostrarEmPreOrdem(auxiliar.direita);
+		
 	}
 
 }
