@@ -71,6 +71,14 @@ public class ArvoreAVL {
 					mostrarEmOrdem(raiz);				
 				}				
 
+			} else if(opcao == 5) {
+				if(raiz == null)System.out.println("Arvore vazia ");
+				else{
+
+					System.out.println("Listando todos os elementos da arvore EM POS ORDEM");
+					mostrarEmPosOrdem(raiz);
+				}				
+
 			}
 			
 		} while(opcao != 8);
@@ -227,6 +235,14 @@ public class ArvoreAVL {
 		mostrarEmOrdem(auxiliar.esquerda);
 		System.out.print(auxiliar.valor + " ");
 		mostrarEmOrdem(auxiliar.direita);
+		
+	}
+	
+	public static void mostrarEmPosOrdem(NoArvore auxiliar) {
+		
+		mostrarEmPosOrdem(auxiliar.esquerda);
+		mostrarEmPosOrdem(auxiliar.direita);
+		System.out.print(auxiliar.valor + " ");
 		
 	}
 
