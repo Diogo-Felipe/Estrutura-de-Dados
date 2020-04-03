@@ -24,8 +24,8 @@ public class ArvoreAVL {
 			System.out.println("\nMENU DE OPCOES\n");
 			System.out.println("1 - Inserir na arvore");
 			System.out.println("2 - Consultar o no da arvore");
-			System.out.println("3 - Consultar toda a arvore - ordem");
 			System.out.println("4 - Consultar toda a arvore - pre-ordem");
+			System.out.println("3 - Consultar toda a arvore - ordem");
 			System.out.println("5 - Consultar toda a arvore - pos-ordem");
 			System.out.println("6 - excluir um no da arvore");
 			System.out.println("7 - Esvaziar a lista");
@@ -58,9 +58,19 @@ public class ArvoreAVL {
 				if(raiz == null)System.out.println("Arvore vazia ");
 				else{
 
-					System.out.println("Listando todos os elementos da arvore EM ORDEM");
+					System.out.println("Listando todos os elementos da arvore EM PRE-ORDEM");
 					mostrarEmPreOrdem(raiz);			
 				}
+				
+			} else if(opcao == 4){
+
+				if(raiz == null)System.out.println("Arvore vazia ");
+				else{
+
+					System.out.println("Listando todos os elementos da arvore EM ORDEM");
+					mostrarEmOrdem(raiz);				
+				}				
+
 			}
 			
 		} while(opcao != 8);
@@ -209,6 +219,14 @@ public class ArvoreAVL {
 		System.out.print(auxiliar.valor + " ");
 		mostrarEmPreOrdem(auxiliar.esquerda);
 		mostrarEmPreOrdem(auxiliar.direita);
+		
+	}
+	
+	public static void mostrarEmOrdem(NoArvore auxiliar) {
+		
+		mostrarEmOrdem(auxiliar.esquerda);
+		System.out.print(auxiliar.valor + " ");
+		mostrarEmOrdem(auxiliar.direita);
 		
 	}
 
