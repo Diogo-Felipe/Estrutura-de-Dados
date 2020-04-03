@@ -101,6 +101,13 @@ public class ArvoreAVL {
 					}			
 
 				}
+			} else if (opcao == 7) {
+				if(raiz == null)System.out.println("Arvore vazia ");
+				else{
+
+					raiz = null;
+					System.out.println("Arvore esvaziada");
+				}
 			}
 			
 		} while(opcao != 8);
