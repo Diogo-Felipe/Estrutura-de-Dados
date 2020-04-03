@@ -43,6 +43,16 @@ public class ArvoreAVL {
 				raiz = inserir(raiz, valor);
 				
 				System.out.println("Numero inserido na árvore");
+				
+			} else if (opcao == 2){
+				if(raiz == null) System.out.println("Arvore vazia");
+				else {
+					System.out.println("Digite o número procurado: ");
+					int valor = entrada.nextInt();
+					boolean achou = false;
+					
+					achou = consulta(raiz, valor, achou);
+				}
 			}
 			
 		} while(opcao != 8);
@@ -169,6 +179,21 @@ public class ArvoreAVL {
 		}
 		
 		return auxiliar1;
+	}
+	
+	public static boolean consulta(NoArvore auxiliar, int valor, boolean achou) {
+		
+		if(auxiliar != null && !achou) {
+			if(auxiliar.valor == valor) {
+				achou = true;
+			} else if(auxiliar.valor > valor) {
+				achou = consulta(auxiliar.esquerda, valor, achou);
+			} else {
+				achou = consulta(auxiliar.direita, valor, achou);
+			}
+		}
+		
+		return achou;
 	}
 
 }
