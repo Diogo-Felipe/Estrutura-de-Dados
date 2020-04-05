@@ -134,7 +134,7 @@ public class ArvoreAVL {
 			else
 				auxiliar.alturaSAE = auxiliar.esquerda.alturaSAE + 1; 
 				
-			
+			auxiliar = balanceamento(auxiliar);
 		} else {
 			
 			auxiliar.direita = inserir(auxiliar.direita, valor);
@@ -144,7 +144,7 @@ public class ArvoreAVL {
 			else
 				auxiliar.alturaSAD = auxiliar.direita.alturaSAE + 1;
 			
-			
+			auxiliar = balanceamento(auxiliar);
 		}
 		
 		return auxiliar;
