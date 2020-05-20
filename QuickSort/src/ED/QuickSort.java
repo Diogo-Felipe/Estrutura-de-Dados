@@ -7,10 +7,19 @@ public class QuickSort {
 
 	}
 	
-	int particiona(int vetor[], int menor, int direita){ 
-        int pivo = vetor[direita];  
-        int i = (menor-1); // index of smaller element 
-        for (int j = menor; j < direita; j++) 
+	void quickSort(int arr[], int comeco, int fim){ 
+        if (comeco < fim){ 
+            int pi = particiona(arr, comeco, fim); 
+  
+            quickSort(arr, comeco, pi-1); 
+            quickSort(arr, pi+1, fim); 
+        } 
+    }
+	
+	int particiona(int vetor[], int comeco, int fim){ 
+        int pivo = vetor[fim];  
+        int i = (comeco-1);
+        for (int j = comeco; j < fim; j++) 
         { 
             // If current element is smaller than or 
             // equal to pivot 
@@ -26,8 +35,8 @@ public class QuickSort {
         } 
   
         int aux = vetor[i+1]; 
-        vetor[i+1] = vetor[direita]; 
-        vetor[direita] = aux; 
+        vetor[i+1] = vetor[fim]; 
+        vetor[fim] = aux; 
   
         return i+1; 
     } 
