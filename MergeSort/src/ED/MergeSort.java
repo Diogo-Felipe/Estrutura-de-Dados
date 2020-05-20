@@ -3,7 +3,19 @@ package ED;
 public class MergeSort {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int vetor[] = {3,1,4,5,2};
+		
+		System.out.println("Vetor desordenado:");
+		for(int i = 0; i < vetor.length; i++) {
+			System.out.print(vetor[i] + " ");
+		}
+		
+		mergeSort(vetor, 0, (vetor.length - 1));
+		
+		System.out.println("\nVetor Ordenado");
+		for(int i = 0; i < vetor.length; i++) {
+			System.out.print(vetor[i] + " ");
+		}
 
 	}
 	
