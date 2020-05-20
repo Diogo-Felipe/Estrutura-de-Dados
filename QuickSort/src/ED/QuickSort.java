@@ -10,7 +10,7 @@ public class QuickSort {
 			System.out.print(vetor[i] + " ");
 		}
 		
-		quickSort(vetor, 0, vetor.length - 1);
+		quickSort(vetor, 0, (vetor.length - 1));
 		
 		System.out.println("\nVetor Ordenado");
 		for(int i = 0; i < vetor.length; i++) {
@@ -19,7 +19,7 @@ public class QuickSort {
 		
 	}
 	
-	static void quickSort(int arr[], int comeco, int fim){ 
+	static void quickSort(int arr[], int comeco, int fim){
         if (comeco < fim){ 
             int pi = particiona(arr, comeco, fim); 
   
